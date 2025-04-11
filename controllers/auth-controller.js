@@ -28,7 +28,7 @@ const login = async(req, res)=>{
         const {email, password} = req.body;
         const userExist = await userModel.findOne({email: email});
         if(!userExist) {
-            return res.status(400).json({msg: "Invalid credentials"}); 
+            return res.status(400).json({message: "Invalid credentials"}); 
         } 
         const isPasswordValid = userExist.comparePassword(password);
         //it's instance will be called on user model
@@ -51,7 +51,7 @@ const getProfile = async(req, res)=>{
         const userData = req.user; 
         return res.status(200).json({userData})
      } catch(error) {
-         console.log('error', error);
+         return res.status(400).json({message: "Error in fetching user profile"})
      }
 }
 const getUserFromId = async(req, res)=>{
@@ -60,7 +60,7 @@ const getUserFromId = async(req, res)=>{
         const user = await userModel.findByIdAndUpdate(id);
         return res.status(200).json({user})
      } catch(error) {
-         console.log('error', error);
+         return res.status(400).json({message: "Error in fetching user data"})
      }
 }
 

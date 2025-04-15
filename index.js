@@ -14,7 +14,7 @@ app.get('/', (req, res)=>{
 
 const corsOptions = {
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    origin: `${process.env.FRONTEND_URL}`,
+    origin: `${process.env.FRONTEND_URL}`, 
     credentials: true
 }  
 

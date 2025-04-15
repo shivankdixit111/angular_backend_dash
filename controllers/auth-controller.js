@@ -46,6 +46,7 @@ const login = async(req, res)=>{
        console.error(error)
      }
 }
+
 const getProfile = async(req, res)=>{
     try{
         const userData = req.user; 
